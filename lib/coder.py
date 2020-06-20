@@ -3,7 +3,6 @@ class Coder:
     alphabet = {}
 
     def __init__(self, text):
-        super().__init__()
         self.text = text
         for char in self.text[:]:
             if char not in self.alphabet:
@@ -12,10 +11,10 @@ class Coder:
                 self.alphabet[char] += 1
     
     def getprobabilities(self):
-        N = len(self.text)
+        Nchars = len(self.text)
         result = {}
         for char,times in self.alphabet.items():
-            result[char] = times/N
+            result[char] = times/Nchars
         return sorted(result.items(), key=lambda item: item[1], reverse=True)
     
     def binarytree(self):
